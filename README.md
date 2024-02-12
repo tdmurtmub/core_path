@@ -8,7 +8,12 @@ Defines a platform independent class for specifying file and/or directory resour
 
     var path = new CorePath("System", "Lib", "README.md");
     Console.WriteLine(path.ToString()); 
-    
-would display:
+
+### From an Array of Strings
+
+    var paths = new String[] = { "System", "Lib", "README.md" };
+    Console.WriteLine(paths.ToString()); 
+
+would also display:
 
     System\Lib\README.md
