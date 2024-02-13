@@ -2,18 +2,21 @@
 
 Defines a platform independent class for specifying file and/or directory resources within a hierarchical file structure.
 
-## Constructing a CorePath
+Examples:
 
-### From multiple String Arguments
+    using tdmurtmub.FileSystem;
 
-    var path = new CorePath("System", "Lib", "README.md");
-    Console.WriteLine(path.ToString()); 
+    // Constructing a CorePath
 
-### From an Array of Strings
+    Console.WriteLine("From multiple string Arguments:");
+    Console.WriteLine(new CorePath("System", "Lib", "README.md").ToString());
 
-    var paths = new String[] = { "System", "Lib", "README.md" };
-    Console.WriteLine(paths.ToString()); 
+    Console.WriteLine("From an array of strings:");
+    Console.WriteLine(new CorePath(new String[] { "System", "Lib", "README.md" }).ToString());
 
-would also display:
+Output:
 
+    From multiple string Arguments:
+    System\Lib\README.md
+    From an array of strings:
     System\Lib\README.md
