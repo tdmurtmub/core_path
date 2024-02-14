@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CorePath.MSTest
 {
-    using tdmurtmub.FileSystem;
+    using tdmm.FileSystem;
 
     [TestClass]
     public class CorePathTestClass
