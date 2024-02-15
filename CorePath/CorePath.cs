@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace tdmurtmub.FileSystem    
+namespace tdmm.FileSystem    
 {
     /// <summary>
     /// Defines a platform independent class for specifying file and/or
