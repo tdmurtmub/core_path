@@ -27,7 +27,7 @@ namespace tdmm.FileSystem
         public CorePath(params string[] segments)
         {
             segments.ToList().ForEach(ValidateSegmentName);
-            this.path = segments.ToList();
+            this.segments = segments.ToList();
             if (ToString().Length > MaxLength)
             {
                 throw new ArgumentException($"Full path exceeds maximum length of {MaxLength} characters.");
@@ -50,7 +50,7 @@ namespace tdmm.FileSystem
         /// Creates the platform specific path for this value.
         /// </summary>
         /// <returns>The full path expanded for the platform.</returns>
-        public override string ToString() => Path.Combine(path.ToArray());
+        public override string ToString() => Path.Combine(segments.ToArray());
 
         private static void ValidateSegmentName(string name)
         {
@@ -64,6 +64,19 @@ namespace tdmm.FileSystem
             }
         }
 
-        private readonly IList<string> path;
+        /// <summary>
+        /// Gets the collection of segment names.
+        /// </summary>
+        public IEnumerable<string> Segments => segments;
+
+        public static CorePath operator +(CorePath firstOperand, CorePath secondOperand)
+        {
+            List<string> list = new List<string>();
+            list.AddRange(firstOperand.Segments);
+            list.AddRange(secondOperand.Segments);
+            return new CorePath(list.ToArray());
+        }
+
+        private readonly IList<string> segments;
     }
 }

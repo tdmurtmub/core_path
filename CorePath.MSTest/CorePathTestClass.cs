@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CorePath.MSTest
 {
+    using System.Linq;
     using tdmm.FileSystem;
 
     [TestClass]
@@ -57,6 +58,21 @@ namespace CorePath.MSTest
                 "1234567890"
             };
             Assert.ThrowsException<ArgumentException>(delegate { new CorePath(arg); }, "Limit total path length to the LCD for Windows, Linux and Android.");
+        }
+
+        [TestMethod]
+        public void PropertyReturnsListOfSegmentStrings()
+        {
+            var segments = new CorePath("S1", "S2", "S3").Segments;
+            Assert.AreEqual("S1 S2 S3", String.Join(' ', segments));
+        }
+
+        [TestMethod]
+        public void PlusOperator()
+        {
+            var op1 = new CorePath("D1", "D2");
+            var op2 = new CorePath("D3", "somefile.txt");
+            Assert.AreEqual(@"D1\D2\D3\somefile.txt", (op1 + op2).ToString());
         }
     }
 }
