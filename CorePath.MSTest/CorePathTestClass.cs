@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace CorePath.MSTest
 {
-    using System.Linq;
     using tdmm.FileSystem;
 
     [TestClass]
